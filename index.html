@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Conecte 4</title>
+    <link href="estilo.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>Conecte 4</h1>
+    <div id="geral">
+      <div id="acoes"></div>
+      <div id="casas"></div>
+    </div>
+    <script>
+    var divAcoes = document.getElementById("acoes");
+    var divCasas = document.getElementById("casas");
+
+    for (var i = 0; i < 7; i++) {
+      var novoDiv = document.createElement('div');
+      divAcoes.appendChild(novoDiv);
+    }
+    for (var i = 0; i < 6*7; i++) {
+      var novoDiv = document.createElement('div');
+      divCasas.appendChild(novoDiv);
+    }
+
+    var casas = [
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0],
+      [1, 0, 2, 0, 0, 0, 0]
+    ]
+
+    function atualiza(){
+      for (var l = 0; l < casas.length; l++) {
+        var linha = casas[l];
+        for (var c = 0; c < linha.length; c++) {
+          casa = linha[c];
+          var divAtual = divCasas.children[l*7+c];
+          if(casa == 1){
+            divAtual.setAttribute("class", "amarelo");
+          } else if (casa == 2) {
+            divAtual.setAttribute("class", "vermelho");
+          } else {
+            divAtual.setAttribute("class", "");
+          }
+        }
+      }
+    }
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+<!---->
