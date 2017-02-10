@@ -14,16 +14,6 @@
     <script>
     var divAcoes = document.getElementById("acoes");
     var divCasas = document.getElementById("casas");
-
-    for (var i = 0; i < 7; i++) {
-      var novoDiv = document.createElement('div');
-      divAcoes.appendChild(novoDiv);
-    }
-    for (var i = 0; i < 6*7; i++) {
-      var novoDiv = document.createElement('div');
-      divCasas.appendChild(novoDiv);
-    }
-
     var casas = [
       [0, 0, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 0, 0, 0],
@@ -32,6 +22,24 @@
       [0, 0, 0, 0, 0, 0, 0],
       [1, 0, 2, 0, 0, 0, 0]
     ]
+    var vez = 1;
+
+    for (var i = 0; i < 7; i++) {
+      var novoDiv = document.createElement('div');
+      divAcoes.appendChild(novoDiv);
+      novoDiv.addEventListener("click", (function(x){
+        return function(){
+              console.dir("clicou em "+x);
+              jogada(casas, x);
+            }
+        })(i)
+      );
+    }
+    for (var i = 0; i < 6*7; i++) {
+      var novoDiv = document.createElement('div');
+      divCasas.appendChild(novoDiv);
+    }
+
 
     function atualiza(){
       for (var l = 0; l < casas.length; l++) {
@@ -48,6 +56,18 @@
           }
         }
       }
+    }
+
+    function jogada(casas, coluna){
+        //código aqui
+
+        //final
+        if(vez == 1) {
+          vez = 2;
+        } else {
+          vez = 1;
+        }
+
     }
     </script>
   </body>
